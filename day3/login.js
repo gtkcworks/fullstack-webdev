@@ -13,6 +13,6 @@ if(isLoggedIn){
 
 // Using Ternary Operator
 let message = isLoggedIn ? (username == "admin" ? "Welcome back, Admin!" : "Welcome user.") : "Please log in."
-//let message = isLoggedIn ? username == "admin" ? "Welcome back, Admin!" : "Welcome user." : "Please log in."
+s//let message = isLoggedIn ? username == "admin" ? "Welcome back, Admin!" : "Welcome user." : "Please log in."
 
 console.log(message);
