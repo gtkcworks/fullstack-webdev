@@ -17,4 +17,3 @@ let message = isLoggedIn ? (username == "admin" ? "Welcome back, Admin!" : "Welc
 //If the user is logged in, check if they are the admin — if yes, greet them as admin; if not, 
 //greet them as a regular user. If the user isn’t logged in at all, tell them to log in.
 
-console.log(message);
