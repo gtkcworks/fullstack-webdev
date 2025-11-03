@@ -1,0 +1,16 @@
+h1 {
+   font-weight:bold;
+   font-family: "Sofia", sans-serif;
+ }
+
+ .bio{
+    margin: 20px;
+ padding: 10px;
+ border: 1px solid #ee0101;
+ }
+
+ .skills{
+     display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
