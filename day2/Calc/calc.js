@@ -23,7 +23,7 @@ button.addEventListener("click", function () {
  };
 
  billInput.oninput = () => {
-    if(billInput.value != "" && tipInput.VALUE != ""){
+    if(billInput.value != "" && tipInput.value != ""){
         button.disabled = false;
         calculate();
     }else{
