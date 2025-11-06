@@ -4,6 +4,10 @@ const result = document.getElementById("result");
 const button = document.getElementById("calculateBtn");
  
 button.addEventListener("click", function () {
+    calculate();
+ });
+
+ let calculate = () => {
    const bill = parseFloat(billInput.value);
    const tipPercent = parseFloat(tipInput.value);
  
@@ -16,4 +20,24 @@ button.addEventListener("click", function () {
    const total = bill + tip;
  
    result.textContent = `Tip: RM${tip.toFixed(2)} | Total: RM${total.toFixed(2)}`;
- });
+ };
+
+ billInput.oninput = () => {
+    if(billInput.value != "" && tipInput.VALUE != ""){
+        button.disabled = false;
+        calculate();
+    }else{
+        button.disabled = true;
+        result.textContent = "";
+    }
+};
+
+    tipInput.onchange = () => {
+        if(billInput.value != "" && tipInput.value != ""){
+            button.disabled = false;
+            calculate();
+        }else{
+            button.disabled = true;
+            result.textContent = "";
+        }
+    };
