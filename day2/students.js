@@ -5,16 +5,22 @@ const students = [
 ];
 
 // Log all student names
-students.forEach(s => console.log(s.name));
+for (let i = 0; i < students.length; i++) {
+   console.log(students[i].name);
+}
 
 // Log only those who are enrolled
-students
-    .filter(s => s.isEnrolled)
-    .forEach(s => console.log(s.name));
+for (let i = 0; i < students.length; i++) {
+   if (students[i].isEnrolled) {
+       console.log(students[i].name);
+   }
+}
 
 // Add a new student using .push()
 students.push({ name: 'Dana', age: 21, isEnrolled: false });
 
 // Remove one student using .pop()
-const removedStudent = students.pop();
-console.log('Removed student:', removedStudent);
+students.pop();
+
+// Log the final list of students
+console.log(students);
