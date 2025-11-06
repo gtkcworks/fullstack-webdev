@@ -1,0 +1,31 @@
+// 1. Prints a greeting
+function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+
+// 2. Converts Fahrenheit to Celsius
+function toCelsius(fahrenheit) {
+  return (fahrenheit - 32) * 5 / 9;
+}
+
+// 3. Returns true if age ≥ 18
+function isAdult(age) {
+  return age >= 18;
+}
+
+// 4. Returns a random number between min and max
+function randomBetween(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+// 1. Greet
+const greet = name => console.log(`Hello, ${name}!`);
+
+// 2. Fahrenheit → Celsius
+const toCelsius = fahrenheit => (fahrenheit - 32) * 5 / 9;
+
+// 3. Check if adult
+const isAdult = age => age >= 18;
+
+// 4. Random number between min and max
+const randomBetween = (min, max) => Math.random() * (max - min) + min;
