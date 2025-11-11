@@ -1,48 +1,23 @@
-const mongoose = require("mongoose");
- 
-mongoose.connect("mongodb+srv://<db_username>:<db_password>@cluster0.y0lup44.mongodb.net/?appName=Cluster0")
-   .then(() => console.log("MongoDB connected"))
-   .catch((err) => console.error("Connection error:", err));
-
 const express = require("express");
- const app = express();
+const mongoose = require("mongoose");
+const cors = require("cors");
 
- function logger(req, res, next) {
-   console.log(`${req.method} ${req.url}`);
-   next(); // continue to the route handler
- }
- app.use(logger);
- 
- app.get("/", (req, res) => {
-   res.send("Welcome to my API!");
- });
+const productRoutes = require("./routes/productroutes");
+const authRoutes = require("./routes/authRoutes");
 
- app.get("/about", (req, res) => {
-   res.send("This is the about page.");
- });
- 
- app.get("/users", (req, res) => {
-   res.json([{ name: "Ali" }, { name: "Siti" }]);
- });
+const app = express();
 
- app.get("/home", (req, res) => {
-   res.send("Welcome home!");
- });
- 
- app.post("/submit", (req, res) => {
-   res.send("Form submitted");
- });
+// middleware
+app.use(express.json());
+app.use(cors());
 
- app.get("/user/:id", (req, res) => {
-   const userId = req.params.id;
-   res.send(`User ID: ${userId}`);
- });
+// connect MongoDB
+mongoose.connect("mongodb+srv://<username>:<password>@cluster0.y0lup44.mongodb.net/?appName=Cluster0")
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.error("Connection error:", err));
 
- app.post("/message", (req, res) => {
-  const message = req.body.text;
-  res.send(`You said: ${message}`);
-});
+// routes
+app.use("/api/products", productRoutes);
+app.use("/api/auth", authRoutes);
 
-  app.listen(3000, () => {
-   console.log("Server is running on http://localhost:3000");
- });
+app.listen(3000, () => console.log("Server running on http://localhost:3000"));
